@@ -1,3 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Clover</string>
+
+    <!-- Splash -->
+    <string name="splash_tagline">Find Your Furry Friend 🐾</string>
+
+    <!-- Registration -->
+    <string name="reg_title">Welcome to Clover!</string>
+    <string name="reg_subtitle">Tell us about yourself to get started</string>
+    <string name="hint_name">Full Name</string>
+    <string name="hint_phone">Phone Number</string>
+    <string name="hint_city">City</string>
+    <string name="label_pet_pref">Your Pet Preference</string>
+    <string name="btn_get_started">Get Started 🐾</string>
+
+    <!-- Home -->
+    <string name="welcome_back">Welcome back,</string>
+    <string name="available_pets">Available Pets</string>
+    <string name="my_apps_count">My Applications</string>
+    <string name="filter_label">Filter:</string>
+    <string name="no_pets">No pets found in this category</string>
+    <string name="nav_home">🏠\nHome</string>
+    <string name="nav_apps">📋\nMy Apps</string>
+    <string name="nav_quiz">🧠\nQuiz</string>
+    <string name="nav_settings">⚙️\nSettings</string>
+
+    <!-- Pet Detail -->
+    <string name="pet_detail">Pet Details</string>
+    <string name="btn_adopt">🏠 Adopt Me!</string>
+    <string name="btn_share_pet">📤 Share</string>
+    <string name="btn_call_shelter">📞 Call Shelter</string>
+    <string name="btn_locate">📍 Locate Shelter</string>
+    <string name="shelter_phone">tel:1800456789</string>
+
+    <!-- Adoption Form -->
+    <string name="adoption_form">Adoption Application</string>
+    <string name="adopting_label">You are adopting:</string>
+    <string name="hint_address">Full Address</string>
+    <string name="label_housing">Housing Type</string>
+    <string name="housing_apartment">Apartment</string>
+    <string name="housing_house">House</string>
+    <string name="housing_farm">Farm</string>
+    <string name="label_other_pets">Do you have other pets?</string>
+    <string name="other_pets_yes">Yes</string>
+    <string name="other_pets_no">No</string>
+    <string name="label_experience">Experience Level</string>
+    <string name="hint_reason">Why do you want to adopt? (min 10 chars)</string>
+    <string name="btn_submit">Submit Application</string>
+    <string name="dialog_confirm_title">Confirm Adoption Application</string>
+    <string name="dialog_confirm_msg">Are you sure you want to submit this adoption application for %1$s?</string>
+    <string name="toast_submitted">Application submitted! 🎉</string>
+    <string name="notif_submitted_title">🐾 Application Submitted!</string>
+    <string name="notif_submitted_text">Your adoption application for %1$s has been received.</string>
+
+    <!-- My Applications -->
+    <string name="my_applications">My Applications</string>
+    <string name="no_applications">No applications yet.\nBrowse pets and submit your first adoption!</string>
+    <string name="dialog_withdraw_title">Withdraw Application</string>
+    <string name="dialog_withdraw_msg">Are you sure you want to withdraw your application for %1$s?</string>
+    <string name="toast_withdrawn">Application withdrawn</string>
+
+    <!-- Quiz -->
+    <string name="quiz_title">🧠 Pet Care Quiz</string>
+    <string name="quiz_subtitle">Test your pet knowledge!</string>
+    <string name="btn_submit_quiz">Submit Quiz</string>
+    <string name="dialog_quiz_title">Submit Quiz</string>
+    <string name="dialog_quiz_msg">Are you sure you want to submit your answers?</string>
+    <string name="notif_quiz_title">🏆 Quiz Results Ready!</string>
+    <string name="notif_quiz_text">You scored %1$d out of 5! Tap to see details.</string>
+    <string name="quiz_result_title">Quiz Results</string>
+    <string name="toast_answer_all">Please answer all questions</string>
+
+    <!-- Settings -->
+    <string name="settings">Settings</string>
+    <string name="profile_section">Profile</string>
+    <string name="data_section">Data Management</string>
+    <string name="btn_save_profile">Save Profile</string>
+    <string name="btn_export">📄 Export Adoption Certificate</string>
+    <string name="btn_share_report">📤 Share via WhatsApp/Email</string>
+    <string name="btn_reset">⚠️ Reset All Data</string>
+    <string name="dialog_reset_title">Reset All Data</string>
+    <string name="dialog_reset_msg">This will permanently delete all data. Are you sure?</string>
+    <string name="toast_exported">Certificate exported! ✓</string>
+    <string name="toast_profile_saved">Profile updated! ✓</string>
+    <string name="toast_reset">All data has been reset</string>
+
+    <!-- Common -->
+    <string name="yes">Yes</string>
+    <string name="cancel">Cancel</string>
+
+    <!-- Arrays -->
+    <string-array name="pet_preferences">
+        <item>Any</item>
+        <item>Dog</item>
+        <item>Cat</item>
+        <item>Bird</item>
+        <item>Rabbit</item>
+    </string-array>
+
+    <string-array name="filter_types">
+        <item>All</item>
+        <item>Dog</item>
+        <item>Cat</item>
+        <item>Bird</item>
+        <item>Rabbit</item>
+    </string-array>
+
+    <string-array name="experience_levels">
+        <item>First-time Owner</item>
+        <item>Experienced</item>
+        <item>Professional</item>
+    </string-array>
 </resources>

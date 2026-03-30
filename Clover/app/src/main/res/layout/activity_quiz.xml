@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@color/background" android:fillViewport="true">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical" android:padding="20dp">
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="@string/quiz_title" android:textColor="@color/text_primary" android:textSize="24sp" android:textStyle="bold"/>
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_marginTop="4dp" android:text="@string/quiz_subtitle"
+            android:textColor="@color/text_secondary" android:textSize="14sp"/>
+
+        <!-- Q1 -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="20dp" android:background="@drawable/card_bg" android:elevation="3dp"
+            android:orientation="vertical" android:padding="16dp">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Q1: How often should you walk a dog?" android:textColor="@color/text_primary"
+                android:textSize="14sp" android:textStyle="bold"/>
+            <RadioGroup android:id="@+id/rgQ1" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginTop="8dp" android:orientation="vertical">
+                <RadioButton android:id="@+id/rbQ1A" android:layout_width="wrap_content" android:layout_height="36dp"
+                    android:text="Daily" android:textSize="14sp"/>
+                <RadioButton android:id="@+id/rbQ1B" android:layout_width="wrap_content" android:layout_height="36dp"
+                    android:text="Weekly" android:textSize="14sp"/>
+                <RadioButton android:id="@+id/rbQ1C" android:layout_width="wrap_content" android:layout_height="36dp"
+                    android:text="Monthly" android:textSize="14sp"/>
+            </RadioGroup>
+        </LinearLayout>
+
+        <!-- Q2 -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="12dp" android:background="@drawable/card_bg" android:elevation="3dp"
+            android:orientation="vertical" android:padding="16dp">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Q2: Which food is toxic to cats?" android:textColor="@color/text_primary"
+                android:textSize="14sp" android:textStyle="bold"/>
+            <RadioGroup android:id="@+id/rgQ2" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginTop="8dp" android:orientation="vertical">
+                <RadioButton android:id="@+id/rbQ2A" android:layout_width="wrap_content" android:layout_height="36dp"
+                    android:text="Chocolate" android:textSize="14sp"/>
+                <RadioButton android:id="@+id/rbQ2B" android:layout_width="wrap_content" android:layout_height="36dp"
+                    android:text="Chicken" android:textSize="14sp"/>
+                <RadioButton android:id="@+id/rbQ2C" android:layout_width="wrap_content" android:layout_height="36dp"
+                    android:text="Rice" android:textSize="14sp"/>
+            </RadioGroup>
+        </LinearLayout>
+
+        <!-- Q3 -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="12dp" android:background="@drawable/card_bg" android:elevation="3dp"
+            android:orientation="vertical" android:padding="16dp">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Q3: Average lifespan of a rabbit?" android:textColor="@color/text_primary"
+                android:textSize="14sp" android:textStyle="bold"/>
+            <RadioGroup android:id="@+id/rgQ3" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginTop="8dp" android:orientation="vertical">
+                <RadioButton android:id="@+id/rbQ3A" android:layout_width="wrap_content" android:layout_height="36dp"
+                    android:text="2 years" android:textSize="14sp"/>
+                <RadioButton android:id="@+id/rbQ3B" android:layout_width="wrap_content" android:layout_height="36dp"
+                    android:text="8 years" android:textSize="14sp"/>
+                <RadioButton android:id="@+id/rbQ3C" android:layout_width="wrap_content" android:layout_height="36dp"
+                    android:text="20 years" android:textSize="14sp"/>
+            </RadioGroup>
+        </LinearLayout>
+
+        <!-- Q4 -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="12dp" android:background="@drawable/card_bg" android:elevation="3dp"
+            android:orientation="vertical" android:padding="16dp">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Q4: How often should you clean a bird cage?" android:textColor="@color/text_primary"
+                android:textSize="14sp" android:textStyle="bold"/>
+            <RadioGroup android:id="@+id/rgQ4" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginTop="8dp" android:orientation="vertical">
+                <RadioButton android:id="@+id/rbQ4A" android:layout_width="wrap_content" android:layout_height="36dp"
+                    android:text="Daily" android:textSize="14sp"/>
+                <RadioButton android:id="@+id/rbQ4B" android:layout_width="wrap_content" android:layout_height="36dp"
+                    android:text="Weekly" android:textSize="14sp"/>
+                <RadioButton android:id="@+id/rbQ4C" android:layout_width="wrap_content" android:layout_height="36dp"
+                    android:text="Monthly" android:textSize="14sp"/>
+            </RadioGroup>
+        </LinearLayout>
+
+        <!-- Q5 -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="12dp" android:background="@drawable/card_bg" android:elevation="3dp"
+            android:orientation="vertical" android:padding="16dp">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Q5: Essential vaccination for puppies?" android:textColor="@color/text_primary"
+                android:textSize="14sp" android:textStyle="bold"/>
+            <RadioGroup android:id="@+id/rgQ5" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginTop="8dp" android:orientation="vertical">
+                <RadioButton android:id="@+id/rbQ5A" android:layout_width="wrap_content" android:layout_height="36dp"
+                    android:text="Rabies" android:textSize="14sp"/>
+                <RadioButton android:id="@+id/rbQ5B" android:layout_width="wrap_content" android:layout_height="36dp"
+                    android:text="Flu" android:textSize="14sp"/>
+                <RadioButton android:id="@+id/rbQ5C" android:layout_width="wrap_content" android:layout_height="36dp"
+                    android:text="None needed" android:textSize="14sp"/>
+            </RadioGroup>
+        </LinearLayout>
+
+        <!-- Score display (hidden until submitted) -->
+        <LinearLayout android:id="@+id/scoreCard" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="16dp" android:background="@drawable/card_bg" android:elevation="4dp"
+            android:gravity="center" android:orientation="vertical" android:padding="20dp" android:visibility="gone">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="@string/quiz_result_title" android:textColor="@color/primary" android:textSize="18sp" android:textStyle="bold"/>
+            <TextView android:id="@+id/tvScore" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_marginTop="8dp" android:textColor="@color/text_primary" android:textSize="40sp" android:textStyle="bold"/>
+            <TextView android:id="@+id/tvScoreMsg" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_marginTop="4dp" android:textColor="@color/text_secondary" android:textSize="14sp" android:gravity="center"/>
+        </LinearLayout>
+
+        <Button android:id="@+id/btnSubmitQuiz" android:layout_width="match_parent" android:layout_height="54dp"
+            android:layout_marginTop="20dp" android:layout_marginBottom="24dp" android:background="@drawable/btn_primary"
+            android:text="@string/btn_submit_quiz" android:textColor="@color/white" android:textSize="16sp" android:textStyle="bold"/>
+    </LinearLayout>
+</ScrollView>

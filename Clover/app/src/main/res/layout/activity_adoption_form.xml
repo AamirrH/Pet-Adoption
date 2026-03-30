@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@color/background" android:fillViewport="true">
+    <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:padding="20dp">
+
+        <TextView android:id="@+id/tvFormTitle" android:layout_width="0dp" android:layout_height="wrap_content"
+            android:text="@string/adoption_form" android:textColor="@color/text_primary" android:textSize="24sp"
+            android:textStyle="bold" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"/>
+
+        <!-- Pet being adopted -->
+        <LinearLayout android:id="@+id/adoptingCard" android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_marginTop="12dp" android:background="@drawable/card_bg" android:elevation="4dp"
+            android:gravity="center" android:orientation="horizontal" android:padding="16dp"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvFormTitle">
+            <TextView android:id="@+id/tvAdoptEmoji" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:textSize="36sp"/>
+            <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_marginStart="12dp" android:orientation="vertical">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="@string/adopting_label" android:textColor="@color/text_secondary" android:textSize="12sp"/>
+                <TextView android:id="@+id/tvAdoptName" android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:textColor="@color/primary" android:textSize="20sp" android:textStyle="bold"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Form Fields -->
+        <LinearLayout android:id="@+id/formCard" android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_marginTop="12dp" android:background="@drawable/card_bg" android:elevation="4dp"
+            android:orientation="vertical" android:padding="16dp"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/adoptingCard">
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Your Name" android:textColor="@color/text_primary" android:textSize="13sp" android:textStyle="bold"/>
+            <EditText android:id="@+id/etAdoptName" android:layout_width="match_parent" android:layout_height="44dp"
+                android:inputType="textPersonName" android:textColor="@color/text_primary" android:textSize="15sp"/>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_marginTop="12dp" android:text="Phone" android:textColor="@color/text_primary"
+                android:textSize="13sp" android:textStyle="bold"/>
+            <EditText android:id="@+id/etAdoptPhone" android:layout_width="match_parent" android:layout_height="44dp"
+                android:inputType="phone" android:textColor="@color/text_primary" android:textSize="15sp"/>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_marginTop="12dp" android:text="Address" android:textColor="@color/text_primary"
+                android:textSize="13sp" android:textStyle="bold"/>
+            <EditText android:id="@+id/etAdoptAddress" android:layout_width="match_parent" android:layout_height="44dp"
+                android:hint="@string/hint_address" android:inputType="textPostalAddress"
+                android:textColor="@color/text_primary" android:textColorHint="@color/text_hint" android:textSize="15sp"/>
+
+            <!-- Housing Type RadioGroup (P6) -->
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_marginTop="14dp" android:text="@string/label_housing"
+                android:textColor="@color/text_primary" android:textSize="13sp" android:textStyle="bold"/>
+            <RadioGroup android:id="@+id/rgHousing" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:layout_marginTop="4dp" android:orientation="horizontal">
+                <RadioButton android:id="@+id/rbApartment" android:layout_width="wrap_content"
+                    android:layout_height="40dp" android:text="@string/housing_apartment" android:textSize="13sp"/>
+                <RadioButton android:id="@+id/rbHouse" android:layout_width="wrap_content"
+                    android:layout_height="40dp" android:text="@string/housing_house" android:textSize="13sp"/>
+                <RadioButton android:id="@+id/rbFarm" android:layout_width="wrap_content"
+                    android:layout_height="40dp" android:text="@string/housing_farm" android:textSize="13sp"/>
+            </RadioGroup>
+
+            <!-- Other Pets RadioGroup (P6) -->
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_marginTop="10dp" android:text="@string/label_other_pets"
+                android:textColor="@color/text_primary" android:textSize="13sp" android:textStyle="bold"/>
+            <RadioGroup android:id="@+id/rgOtherPets" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:layout_marginTop="4dp" android:orientation="horizontal">
+                <RadioButton android:id="@+id/rbYes" android:layout_width="wrap_content"
+                    android:layout_height="40dp" android:text="@string/other_pets_yes" android:textSize="13sp"/>
+                <RadioButton android:id="@+id/rbNo" android:layout_width="wrap_content"
+                    android:layout_height="40dp" android:text="@string/other_pets_no" android:textSize="13sp"/>
+            </RadioGroup>
+
+            <!-- Experience Spinner -->
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_marginTop="10dp" android:text="@string/label_experience"
+                android:textColor="@color/text_primary" android:textSize="13sp" android:textStyle="bold"/>
+            <Spinner android:id="@+id/spinnerExp" android:layout_width="match_parent" android:layout_height="44dp"
+                android:layout_marginTop="4dp" android:entries="@array/experience_levels"/>
+
+            <!-- Reason -->
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_marginTop="10dp" android:text="Reason for Adoption"
+                android:textColor="@color/text_primary" android:textSize="13sp" android:textStyle="bold"/>
+            <EditText android:id="@+id/etReason" android:layout_width="match_parent" android:layout_height="80dp"
+                android:layout_marginTop="4dp" android:gravity="top" android:hint="@string/hint_reason"
+                android:inputType="textMultiLine" android:textColor="@color/text_primary"
+                android:textColorHint="@color/text_hint" android:textSize="14sp"/>
+        </LinearLayout>
+
+        <!-- Submit Button (P3: disabled until valid) -->
+        <Button android:id="@+id/btnSubmit" android:layout_width="0dp" android:layout_height="54dp"
+            android:layout_marginTop="20dp" android:layout_marginBottom="24dp" android:background="@drawable/btn_disabled"
+            android:enabled="false" android:text="@string/btn_submit" android:textColor="@color/white"
+            android:textSize="16sp" android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/formCard"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
