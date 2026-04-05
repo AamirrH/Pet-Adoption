@@ -7,7 +7,6 @@ import android.os.Handler;
 import android.util.Log;
 import androidx.appcompat.app.AppCompatActivity;
 
-/** P1: Activity Lifecycle demo */
 public class SplashActivity extends AppCompatActivity {
     private static final String TAG = "CloverLifecycle";
 

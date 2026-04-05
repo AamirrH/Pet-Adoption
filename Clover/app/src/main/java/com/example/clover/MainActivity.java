@@ -9,7 +9,6 @@ import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 import java.util.List;
 
-/** P1: Lifecycle, P2: All 3 layouts, P5: Explicit Intent, P8: SQLite SELECT */
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "CloverLifecycle";
     private DatabaseHelper db;
@@ -39,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
             @Override public void onNothingSelected(AdapterView<?> p) { loadPets("All"); }
         });
 
-        // Bottom Nav
         findViewById(R.id.navHome).setOnClickListener(v -> {});
         findViewById(R.id.navApps).setOnClickListener(v -> startActivity(new Intent(this, MyApplicationsActivity.class)));
         findViewById(R.id.navQuiz).setOnClickListener(v -> startActivity(new Intent(this, QuizActivity.class)));

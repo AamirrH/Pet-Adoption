@@ -11,7 +11,6 @@
             android:textStyle="bold" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"/>
 
-        <!-- Pet Hero Card -->
         <LinearLayout android:id="@+id/heroCard" android:layout_width="0dp" android:layout_height="wrap_content"
             android:layout_marginTop="16dp" android:background="@drawable/card_bg" android:elevation="4dp"
             android:gravity="center" android:orientation="vertical" android:padding="24dp"
@@ -27,7 +26,6 @@
                 android:textColor="@color/text_secondary" android:textSize="16sp"/>
         </LinearLayout>
 
-        <!-- Info Card -->
         <LinearLayout android:id="@+id/infoCard" android:layout_width="0dp" android:layout_height="wrap_content"
             android:layout_marginTop="12dp" android:background="@drawable/card_bg" android:elevation="4dp"
             android:orientation="vertical" android:padding="20dp"
@@ -72,7 +70,6 @@
                 android:layout_height="wrap_content" android:textColor="@color/text_secondary" android:textSize="14sp"/>
         </LinearLayout>
 
-        <!-- Action Buttons -->
         <LinearLayout android:id="@+id/actions" android:layout_width="0dp" android:layout_height="wrap_content"
             android:layout_marginTop="16dp" android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"

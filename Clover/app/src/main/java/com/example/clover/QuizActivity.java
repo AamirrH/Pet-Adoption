@@ -10,11 +10,9 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 
-/** P6: RadioButtons + AlertDialog + Notification + PendingIntent */
 public class QuizActivity extends AppCompatActivity {
     private static final String CH_ID = "clover_quiz_channel";
     private RadioGroup rgQ1, rgQ2, rgQ3, rgQ4, rgQ5;
-    // Correct answers: Q1=A(Daily), Q2=A(Chocolate), Q3=B(8 years), Q4=A(Daily), Q5=A(Rabies)
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +35,6 @@ public class QuizActivity extends AppCompatActivity {
                 return;
             }
 
-            // P6: AlertDialog
             new AlertDialog.Builder(this)
                     .setTitle(getString(R.string.dialog_quiz_title))
                     .setMessage(getString(R.string.dialog_quiz_msg))
@@ -55,12 +52,10 @@ public class QuizActivity extends AppCompatActivity {
         if (rgQ4.getCheckedRadioButtonId() == R.id.rbQ4A) score++;
         if (rgQ5.getCheckedRadioButtonId() == R.id.rbQ5A) score++;
 
-        // Save high score
         SharedPreferences prefs = getSharedPreferences("CloverPrefs", MODE_PRIVATE);
         int high = prefs.getInt("quiz_high_score", 0);
         if (score > high) prefs.edit().putInt("quiz_high_score", score).apply();
 
-        // Show score card
         findViewById(R.id.scoreCard).setVisibility(View.VISIBLE);
         ((TextView) findViewById(R.id.tvScore)).setText(score + " / 5");
 
@@ -70,11 +65,9 @@ public class QuizActivity extends AppCompatActivity {
         else msg = "📖 Keep learning about pet care!";
         ((TextView) findViewById(R.id.tvScoreMsg)).setText(msg);
 
-        // Disable submit button
         findViewById(R.id.btnSubmitQuiz).setEnabled(false);
         ((Button) findViewById(R.id.btnSubmitQuiz)).setText("Submitted ✓");
 
-        // P6: Notification with PendingIntent
         sendScoreNotification(score);
     }
 

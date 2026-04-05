@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 
-/** P2: Nested LinearLayout, P3: Event Handler, P4: Validation, P7: SharedPreferences */
 public class RegistrationActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {

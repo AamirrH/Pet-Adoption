@@ -2,10 +2,8 @@
 <resources>
     <string name="app_name">Clover</string>
 
-    <!-- Splash -->
     <string name="splash_tagline">Find Your Furry Friend 🐾</string>
 
-    <!-- Registration -->
     <string name="reg_title">Welcome to Clover!</string>
     <string name="reg_subtitle">Tell us about yourself to get started</string>
     <string name="hint_name">Full Name</string>
@@ -14,7 +12,6 @@
     <string name="label_pet_pref">Your Pet Preference</string>
     <string name="btn_get_started">Get Started 🐾</string>
 
-    <!-- Home -->
     <string name="welcome_back">Welcome back,</string>
     <string name="available_pets">Available Pets</string>
     <string name="my_apps_count">My Applications</string>
@@ -25,7 +22,6 @@
     <string name="nav_quiz">🧠\nQuiz</string>
     <string name="nav_settings">⚙️\nSettings</string>
 
-    <!-- Pet Detail -->
     <string name="pet_detail">Pet Details</string>
     <string name="btn_adopt">🏠 Adopt Me!</string>
     <string name="btn_share_pet">📤 Share</string>
@@ -33,7 +29,6 @@
     <string name="btn_locate">📍 Locate Shelter</string>
     <string name="shelter_phone">tel:1800456789</string>
 
-    <!-- Adoption Form -->
     <string name="adoption_form">Adoption Application</string>
     <string name="adopting_label">You are adopting:</string>
     <string name="hint_address">Full Address</string>
@@ -53,14 +48,12 @@
     <string name="notif_submitted_title">🐾 Application Submitted!</string>
     <string name="notif_submitted_text">Your adoption application for %1$s has been received.</string>
 
-    <!-- My Applications -->
     <string name="my_applications">My Applications</string>
     <string name="no_applications">No applications yet.\nBrowse pets and submit your first adoption!</string>
     <string name="dialog_withdraw_title">Withdraw Application</string>
     <string name="dialog_withdraw_msg">Are you sure you want to withdraw your application for %1$s?</string>
     <string name="toast_withdrawn">Application withdrawn</string>
 
-    <!-- Quiz -->
     <string name="quiz_title">🧠 Pet Care Quiz</string>
     <string name="quiz_subtitle">Test your pet knowledge!</string>
     <string name="btn_submit_quiz">Submit Quiz</string>
@@ -71,7 +64,6 @@
     <string name="quiz_result_title">Quiz Results</string>
     <string name="toast_answer_all">Please answer all questions</string>
 
-    <!-- Settings -->
     <string name="settings">Settings</string>
     <string name="profile_section">Profile</string>
     <string name="data_section">Data Management</string>
@@ -85,11 +77,9 @@
     <string name="toast_profile_saved">Profile updated! ✓</string>
     <string name="toast_reset">All data has been reset</string>
 
-    <!-- Common -->
     <string name="yes">Yes</string>
     <string name="cancel">Cancel</string>
 
-    <!-- Arrays -->
     <string-array name="pet_preferences">
         <item>Any</item>
         <item>Dog</item>

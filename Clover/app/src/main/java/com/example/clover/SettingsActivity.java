@@ -9,7 +9,6 @@ import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-/** P5: Implicit Intent (share), P6: AlertDialog (reset), P7: SharedPrefs + Internal Storage, P8: SQLite */
 public class SettingsActivity extends AppCompatActivity {
     private EditText etName, etPhone, etCity;
     private DatabaseHelper db;
@@ -24,13 +23,11 @@ public class SettingsActivity extends AppCompatActivity {
         etPhone = findViewById(R.id.etSetPhone);
         etCity = findViewById(R.id.etSetCity);
 
-        // Load current settings
         SharedPreferences prefs = getSharedPreferences("CloverPrefs", MODE_PRIVATE);
         etName.setText(prefs.getString("user_name", ""));
         etPhone.setText(prefs.getString("user_phone", ""));
         etCity.setText(prefs.getString("user_city", ""));
 
-        // Save Profile (P7)
         findViewById(R.id.btnSaveProfile).setOnClickListener(v -> {
             String name = etName.getText().toString().trim();
             if (name.isEmpty()) { etName.setError("Required"); return; }
@@ -42,13 +39,10 @@ public class SettingsActivity extends AppCompatActivity {
             Toast.makeText(this, getString(R.string.toast_profile_saved), Toast.LENGTH_SHORT).show();
         });
 
-        // P7: Export to Internal Storage
         findViewById(R.id.btnExport).setOnClickListener(v -> exportCertificate());
 
-        // P5: Share via Implicit Intent
         findViewById(R.id.btnShare).setOnClickListener(v -> shareReport());
 
-        // P6: Reset with AlertDialog
         findViewById(R.id.btnReset).setOnClickListener(v -> {
             new AlertDialog.Builder(this)
                     .setTitle(getString(R.string.dialog_reset_title))

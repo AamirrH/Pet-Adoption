@@ -11,7 +11,6 @@
             android:textStyle="bold" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"/>
 
-        <!-- Pet being adopted -->
         <LinearLayout android:id="@+id/adoptingCard" android:layout_width="0dp" android:layout_height="wrap_content"
             android:layout_marginTop="12dp" android:background="@drawable/card_bg" android:elevation="4dp"
             android:gravity="center" android:orientation="horizontal" android:padding="16dp"
@@ -28,7 +27,6 @@
             </LinearLayout>
         </LinearLayout>
 
-        <!-- Form Fields -->
         <LinearLayout android:id="@+id/formCard" android:layout_width="0dp" android:layout_height="wrap_content"
             android:layout_marginTop="12dp" android:background="@drawable/card_bg" android:elevation="4dp"
             android:orientation="vertical" android:padding="16dp"
@@ -53,7 +51,6 @@
                 android:hint="@string/hint_address" android:inputType="textPostalAddress"
                 android:textColor="@color/text_primary" android:textColorHint="@color/text_hint" android:textSize="15sp"/>
 
-            <!-- Housing Type RadioGroup (P6) -->
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
                 android:layout_marginTop="14dp" android:text="@string/label_housing"
                 android:textColor="@color/text_primary" android:textSize="13sp" android:textStyle="bold"/>
@@ -67,7 +64,6 @@
                     android:layout_height="40dp" android:text="@string/housing_farm" android:textSize="13sp"/>
             </RadioGroup>
 
-            <!-- Other Pets RadioGroup (P6) -->
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
                 android:layout_marginTop="10dp" android:text="@string/label_other_pets"
                 android:textColor="@color/text_primary" android:textSize="13sp" android:textStyle="bold"/>
@@ -79,14 +75,12 @@
                     android:layout_height="40dp" android:text="@string/other_pets_no" android:textSize="13sp"/>
             </RadioGroup>
 
-            <!-- Experience Spinner -->
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
                 android:layout_marginTop="10dp" android:text="@string/label_experience"
                 android:textColor="@color/text_primary" android:textSize="13sp" android:textStyle="bold"/>
             <Spinner android:id="@+id/spinnerExp" android:layout_width="match_parent" android:layout_height="44dp"
                 android:layout_marginTop="4dp" android:entries="@array/experience_levels"/>
 
-            <!-- Reason -->
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
                 android:layout_marginTop="10dp" android:text="Reason for Adoption"
                 android:textColor="@color/text_primary" android:textSize="13sp" android:textStyle="bold"/>
@@ -96,7 +90,6 @@
                 android:textColorHint="@color/text_hint" android:textSize="14sp"/>
         </LinearLayout>
 
-        <!-- Submit Button (P3: disabled until valid) -->
         <Button android:id="@+id/btnSubmit" android:layout_width="0dp" android:layout_height="54dp"
             android:layout_marginTop="20dp" android:layout_marginBottom="24dp" android:background="@drawable/btn_disabled"
             android:enabled="false" android:text="@string/btn_submit" android:textColor="@color/white"

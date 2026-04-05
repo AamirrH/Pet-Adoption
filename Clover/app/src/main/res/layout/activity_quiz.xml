@@ -11,7 +11,6 @@
             android:layout_marginTop="4dp" android:text="@string/quiz_subtitle"
             android:textColor="@color/text_secondary" android:textSize="14sp"/>
 
-        <!-- Q1 -->
         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
             android:layout_marginTop="20dp" android:background="@drawable/card_bg" android:elevation="3dp"
             android:orientation="vertical" android:padding="16dp">
@@ -29,7 +28,6 @@
             </RadioGroup>
         </LinearLayout>
 
-        <!-- Q2 -->
         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
             android:layout_marginTop="12dp" android:background="@drawable/card_bg" android:elevation="3dp"
             android:orientation="vertical" android:padding="16dp">
@@ -47,7 +45,6 @@
             </RadioGroup>
         </LinearLayout>
 
-        <!-- Q3 -->
         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
             android:layout_marginTop="12dp" android:background="@drawable/card_bg" android:elevation="3dp"
             android:orientation="vertical" android:padding="16dp">
@@ -65,7 +62,6 @@
             </RadioGroup>
         </LinearLayout>
 
-        <!-- Q4 -->
         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
             android:layout_marginTop="12dp" android:background="@drawable/card_bg" android:elevation="3dp"
             android:orientation="vertical" android:padding="16dp">
@@ -83,7 +79,6 @@
             </RadioGroup>
         </LinearLayout>
 
-        <!-- Q5 -->
         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
             android:layout_marginTop="12dp" android:background="@drawable/card_bg" android:elevation="3dp"
             android:orientation="vertical" android:padding="16dp">
@@ -101,7 +96,6 @@
             </RadioGroup>
         </LinearLayout>
 
-        <!-- Score display (hidden until submitted) -->
         <LinearLayout android:id="@+id/scoreCard" android:layout_width="match_parent" android:layout_height="wrap_content"
             android:layout_marginTop="16dp" android:background="@drawable/card_bg" android:elevation="4dp"
             android:gravity="center" android:orientation="vertical" android:padding="20dp" android:visibility="gone">

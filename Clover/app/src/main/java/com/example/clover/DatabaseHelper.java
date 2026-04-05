@@ -48,7 +48,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.insert("pets", null, v);
     }
 
-    // ===== PETS =====
     public List<Pet> getAllPets() { return queryPets("SELECT * FROM pets ORDER BY is_adopted ASC, _id ASC", null); }
 
     public List<Pet> getPetsByType(String type) { return queryPets("SELECT * FROM pets WHERE type = ? ORDER BY is_adopted ASC", new String[]{type}); }
@@ -86,7 +85,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 c.getString(4), c.getString(5), c.getString(6), c.getString(7), c.getString(8), c.getInt(9) == 1);
     }
 
-    // ===== APPLICATIONS =====
     public long insertApplication(AdoptionApplication a) {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues v = new ContentValues();

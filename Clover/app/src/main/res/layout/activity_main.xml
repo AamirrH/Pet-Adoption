@@ -14,7 +14,6 @@
             android:textSize="24sp" android:textStyle="bold"/>
     </LinearLayout>
 
-    <!-- Stats Bar (Nested LinearLayout with RelativeLayout cards) -->
     <LinearLayout android:id="@+id/statsBar" android:layout_width="0dp" android:layout_height="wrap_content"
         android:layout_marginTop="-12dp" android:orientation="horizontal" android:paddingStart="12dp"
         android:paddingEnd="12dp" app:layout_constraintEnd_toEndOf="parent"
@@ -45,7 +44,6 @@
         </RelativeLayout>
     </LinearLayout>
 
-    <!-- Filter -->
     <LinearLayout android:id="@+id/filterRow" android:layout_width="0dp" android:layout_height="wrap_content"
         android:layout_marginTop="12dp" android:layout_marginStart="16dp" android:layout_marginEnd="16dp"
         android:background="@drawable/card_bg" android:elevation="2dp" android:gravity="center_vertical"
@@ -59,7 +57,6 @@
             android:layout_weight="1" android:entries="@array/filter_types"/>
     </LinearLayout>
 
-    <!-- Pet List -->
     <ScrollView android:id="@+id/scrollPets" android:layout_width="0dp" android:layout_height="0dp"
         android:layout_marginTop="8dp" android:paddingStart="12dp" android:paddingEnd="12dp"
         app:layout_constraintBottom_toTopOf="@id/bottomNav" app:layout_constraintEnd_toEndOf="parent"
@@ -74,7 +71,6 @@
         app:layout_constraintBottom_toTopOf="@id/bottomNav" app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/filterRow"/>
 
-    <!-- Bottom Nav -->
     <LinearLayout android:id="@+id/bottomNav" android:layout_width="0dp" android:layout_height="60dp"
         android:background="@color/card_white" android:elevation="12dp" android:gravity="center_vertical"
         android:orientation="horizontal" app:layout_constraintBottom_toBottomOf="parent"

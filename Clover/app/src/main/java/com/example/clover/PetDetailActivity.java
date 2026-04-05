@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 
-/** P5: Explicit + Implicit Intents, P2: ConstraintLayout */
 public class PetDetailActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +43,6 @@ public class PetDetailActivity extends AppCompatActivity {
             });
         }
 
-        // P5: Implicit Intent — Share
         findViewById(R.id.btnSharePet).setOnClickListener(v -> {
             String text = "🐾 Check out " + pet.getName() + " on Clover!\n" +
                     pet.getEmoji() + " " + pet.getBreed() + "\n" +
@@ -56,12 +54,10 @@ public class PetDetailActivity extends AppCompatActivity {
             startActivity(Intent.createChooser(share, "Share via"));
         });
 
-        // P5: Implicit Intent — Call Shelter
         findViewById(R.id.btnCall).setOnClickListener(v -> {
             startActivity(new Intent(Intent.ACTION_DIAL, Uri.parse(getString(R.string.shelter_phone))));
         });
 
-        // P5: Implicit Intent — Locate Shelter
         findViewById(R.id.btnLocate).setOnClickListener(v -> {
             Intent map = new Intent(Intent.ACTION_VIEW, Uri.parse("geo:0,0?q=animal+shelter+near+me"));
             startActivity(map);

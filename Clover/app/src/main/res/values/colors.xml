@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Primary -->
     <color name="primary">#FF6B35</color>
     <color name="primary_dark">#D4521E</color>
     <color name="primary_light">#FFE0CC</color>
     <color name="accent">#00BFA5</color>
 
-    <!-- Animal Type Colors -->
     <color name="dog_blue">#42A5F5</color>
     <color name="dog_blue_light">#E3F2FD</color>
     <color name="cat_purple">#AB47BC</color>
@@ -16,14 +14,12 @@
     <color name="rabbit_pink">#EC407A</color>
     <color name="rabbit_pink_light">#FCE4EC</color>
 
-    <!-- Status -->
     <color name="adopted_green">#66BB6A</color>
     <color name="adopted_green_light">#E8F5E9</color>
     <color name="pending_amber">#FFA726</color>
     <color name="pending_amber_light">#FFF3E0</color>
     <color name="rejected_red">#EF5350</color>
 
-    <!-- UI -->
     <color name="background">#FFF8F0</color>
     <color name="card_white">#FFFFFF</color>
     <color name="text_primary">#3E2723</color>
@@ -32,7 +28,6 @@
     <color name="divider">#EFEBE9</color>
     <color name="disabled">#BDBDBD</color>
 
-    <!-- Basic -->
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 </resources>

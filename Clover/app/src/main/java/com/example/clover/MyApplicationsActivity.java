@@ -7,7 +7,6 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import java.util.List;
 
-/** P5: Explicit Intent (receive data), P6: AlertDialog, P8: SQLite SELECT/DELETE */
 public class MyApplicationsActivity extends AppCompatActivity {
     private DatabaseHelper db;
     private LinearLayout appsList;
@@ -60,7 +59,6 @@ public class MyApplicationsActivity extends AppCompatActivity {
                         tvStatus.setTextColor(getResources().getColor(R.color.rejected_red));
                 }
 
-                // P6: AlertDialog for withdraw
                 item.findViewById(R.id.btnWithdraw).setOnClickListener(v -> {
                     new AlertDialog.Builder(this)
                             .setTitle(getString(R.string.dialog_withdraw_title))

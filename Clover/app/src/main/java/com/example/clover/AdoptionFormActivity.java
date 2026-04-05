@@ -12,7 +12,6 @@ import androidx.core.app.NotificationCompat;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-/** P3: Event Handlers + Enable/Disable, P4: Validation, P6: RadioButtons + AlertDialog + Notification, P8: SQLite INSERT */
 public class AdoptionFormActivity extends AppCompatActivity {
     private static final String CH_ID = "clover_channel";
     private EditText etName, etPhone, etAddress, etReason;
@@ -43,14 +42,12 @@ public class AdoptionFormActivity extends AppCompatActivity {
         spinnerExp = findViewById(R.id.spinnerExp);
         btnSubmit = findViewById(R.id.btnSubmit);
 
-        // Pre-fill from SharedPreferences
         SharedPreferences prefs = getSharedPreferences("CloverPrefs", MODE_PRIVATE);
         etName.setText(prefs.getString("user_name", ""));
         etPhone.setText(prefs.getString("user_phone", ""));
 
         createNotificationChannel();
 
-        // P3: TextWatcher for enable/disable
         TextWatcher watcher = new TextWatcher() {
             @Override public void beforeTextChanged(CharSequence s, int a, int b, int c) {}
             @Override public void onTextChanged(CharSequence s, int a, int b, int c) {}

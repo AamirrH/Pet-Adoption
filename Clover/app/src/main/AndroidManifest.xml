@@ -14,7 +14,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Clover">
 
-        <!-- Splash — LAUNCHER (P1) -->
         <activity android:name=".SplashActivity" android:exported="true"
             android:theme="@style/Theme.Clover.Splash">
             <intent-filter>
@@ -23,25 +22,12 @@
             </intent-filter>
         </activity>
 
-        <!-- Registration (P7) -->
         <activity android:name=".RegistrationActivity" android:exported="false" />
-
-        <!-- Home — Browse Pets (P2) -->
         <activity android:name=".MainActivity" android:exported="false" />
-
-        <!-- Pet Detail (P5) -->
         <activity android:name=".PetDetailActivity" android:exported="false" />
-
-        <!-- Adoption Form (P3, P4, P6) -->
         <activity android:name=".AdoptionFormActivity" android:exported="false" />
-
-        <!-- My Applications (P8) -->
         <activity android:name=".MyApplicationsActivity" android:exported="false" />
-
-        <!-- Quiz (P6) -->
         <activity android:name=".QuizActivity" android:exported="false" />
-
-        <!-- Settings (P7) -->
         <activity android:name=".SettingsActivity" android:exported="false" />
 
     </application>
