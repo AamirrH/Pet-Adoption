@@ -339,4 +339,3 @@ res/layout/
 
 ---
 
-**Ready to build? Confirm this PRD and I'll start coding!** 🚀
