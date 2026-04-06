@@ -29,6 +29,7 @@
         <activity android:name=".MyApplicationsActivity" android:exported="false" />
         <activity android:name=".QuizActivity" android:exported="false" />
         <activity android:name=".SettingsActivity" android:exported="false" />
+        <activity android:name=".AdminPanelActivity" android:exported="false" />
 
     </application>
 </manifest>

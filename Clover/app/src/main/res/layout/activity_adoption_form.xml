@@ -33,24 +33,57 @@
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/adoptingCard">
 
+            <!-- Your Name -->
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:text="Your Name" android:textColor="@color/text_primary" android:textSize="13sp" android:textStyle="bold"/>
+                android:text="Your Name *" android:textColor="@color/text_primary" android:textSize="13sp" android:textStyle="bold"/>
             <EditText android:id="@+id/etAdoptName" android:layout_width="match_parent" android:layout_height="44dp"
-                android:inputType="textPersonName" android:textColor="@color/text_primary" android:textSize="15sp"/>
+                android:hint="Enter your full name" android:inputType="textPersonName"
+                android:textColor="@color/text_primary" android:textColorHint="@color/text_hint" android:textSize="15sp"/>
+            <TextView android:id="@+id/tvNameError" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:textColor="@color/rejected_red" android:textSize="11sp" android:visibility="gone"
+                android:paddingStart="4dp" android:paddingTop="2dp"/>
 
+            <!-- Phone -->
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:layout_marginTop="12dp" android:text="Phone" android:textColor="@color/text_primary"
+                android:layout_marginTop="12dp" android:text="Phone *" android:textColor="@color/text_primary"
                 android:textSize="13sp" android:textStyle="bold"/>
             <EditText android:id="@+id/etAdoptPhone" android:layout_width="match_parent" android:layout_height="44dp"
-                android:inputType="phone" android:textColor="@color/text_primary" android:textSize="15sp"/>
-
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:layout_marginTop="12dp" android:text="Address" android:textColor="@color/text_primary"
-                android:textSize="13sp" android:textStyle="bold"/>
-            <EditText android:id="@+id/etAdoptAddress" android:layout_width="match_parent" android:layout_height="44dp"
-                android:hint="@string/hint_address" android:inputType="textPostalAddress"
+                android:hint="10-digit phone number" android:inputType="phone"
                 android:textColor="@color/text_primary" android:textColorHint="@color/text_hint" android:textSize="15sp"/>
+            <TextView android:id="@+id/tvPhoneError" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:textColor="@color/rejected_red" android:textSize="11sp" android:visibility="gone"
+                android:paddingStart="4dp" android:paddingTop="2dp"/>
 
+            <!-- Address (AutoComplete) -->
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_marginTop="12dp" android:text="Address *" android:textColor="@color/text_primary"
+                android:textSize="13sp" android:textStyle="bold"/>
+            <AutoCompleteTextView android:id="@+id/etAdoptAddress" android:layout_width="match_parent" android:layout_height="44dp"
+                android:hint="Start typing your city..." android:inputType="textPostalAddress"
+                android:textColor="@color/text_primary" android:textColorHint="@color/text_hint" android:textSize="15sp"
+                android:completionThreshold="1"/>
+            <TextView android:id="@+id/tvAddressError" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:textColor="@color/rejected_red" android:textSize="11sp" android:visibility="gone"
+                android:paddingStart="4dp" android:paddingTop="2dp"/>
+
+            <!-- Preferred Date (Calendar Picker) -->
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_marginTop="14dp" android:text="Preferred Adoption Date *"
+                android:textColor="@color/text_primary" android:textSize="13sp" android:textStyle="bold"/>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginTop="4dp" android:orientation="horizontal" android:gravity="center_vertical">
+                <Button android:id="@+id/btnPickDate" android:layout_width="wrap_content" android:layout_height="40dp"
+                    android:text="📅 Pick Date" android:textSize="13sp"
+                    android:backgroundTint="@color/accent" android:textColor="@color/white"/>
+                <TextView android:id="@+id/tvSelectedDate" android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:layout_marginStart="12dp" android:text="No date selected"
+                    android:textColor="@color/text_hint" android:textSize="14sp"/>
+            </LinearLayout>
+            <TextView android:id="@+id/tvDateError" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:textColor="@color/rejected_red" android:textSize="11sp" android:visibility="gone"
+                android:paddingStart="4dp" android:paddingTop="2dp"/>
+
+            <!-- Housing Type -->
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
                 android:layout_marginTop="14dp" android:text="@string/label_housing"
                 android:textColor="@color/text_primary" android:textSize="13sp" android:textStyle="bold"/>
@@ -63,7 +96,11 @@
                 <RadioButton android:id="@+id/rbFarm" android:layout_width="wrap_content"
                     android:layout_height="40dp" android:text="@string/housing_farm" android:textSize="13sp"/>
             </RadioGroup>
+            <TextView android:id="@+id/tvHousingError" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:textColor="@color/rejected_red" android:textSize="11sp" android:visibility="gone"
+                android:paddingStart="4dp" android:paddingTop="2dp"/>
 
+            <!-- Other Pets -->
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
                 android:layout_marginTop="10dp" android:text="@string/label_other_pets"
                 android:textColor="@color/text_primary" android:textSize="13sp" android:textStyle="bold"/>
@@ -74,20 +111,28 @@
                 <RadioButton android:id="@+id/rbNo" android:layout_width="wrap_content"
                     android:layout_height="40dp" android:text="@string/other_pets_no" android:textSize="13sp"/>
             </RadioGroup>
+            <TextView android:id="@+id/tvPetsError" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:textColor="@color/rejected_red" android:textSize="11sp" android:visibility="gone"
+                android:paddingStart="4dp" android:paddingTop="2dp"/>
 
+            <!-- Experience -->
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
                 android:layout_marginTop="10dp" android:text="@string/label_experience"
                 android:textColor="@color/text_primary" android:textSize="13sp" android:textStyle="bold"/>
             <Spinner android:id="@+id/spinnerExp" android:layout_width="match_parent" android:layout_height="44dp"
                 android:layout_marginTop="4dp" android:entries="@array/experience_levels"/>
 
+            <!-- Reason -->
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:layout_marginTop="10dp" android:text="Reason for Adoption"
+                android:layout_marginTop="10dp" android:text="Reason for Adoption *"
                 android:textColor="@color/text_primary" android:textSize="13sp" android:textStyle="bold"/>
             <EditText android:id="@+id/etReason" android:layout_width="match_parent" android:layout_height="80dp"
                 android:layout_marginTop="4dp" android:gravity="top" android:hint="@string/hint_reason"
                 android:inputType="textMultiLine" android:textColor="@color/text_primary"
                 android:textColorHint="@color/text_hint" android:textSize="14sp"/>
+            <TextView android:id="@+id/tvReasonError" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:textColor="@color/rejected_red" android:textSize="11sp" android:visibility="gone"
+                android:paddingStart="4dp" android:paddingTop="2dp"/>
         </LinearLayout>
 
         <Button android:id="@+id/btnSubmit" android:layout_width="0dp" android:layout_height="54dp"

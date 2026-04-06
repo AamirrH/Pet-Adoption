@@ -10,7 +10,7 @@ import java.util.List;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String DB_NAME = "clover.db";
-    private static final int DB_VERSION = 1;
+    private static final int DB_VERSION = 2;
 
     public DatabaseHelper(Context context) { super(context, DB_NAME, null, DB_VERSION); }
 
@@ -72,6 +72,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.update("pets", v, "_id = ?", new String[]{String.valueOf(petId)}); db.close();
     }
 
+    public void markNotAdopted(long petId) {
+        SQLiteDatabase db = getWritableDatabase();
+        ContentValues v = new ContentValues(); v.put("is_adopted", 0);
+        db.update("pets", v, "_id = ?", new String[]{String.valueOf(petId)}); db.close();
+    }
+
     private List<Pet> queryPets(String sql, String[] args) {
         List<Pet> list = new ArrayList<>();
         SQLiteDatabase db = getReadableDatabase();
@@ -109,6 +115,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         int count = 0; if (c.moveToFirst()) count = c.getInt(0); c.close(); db.close(); return count;
     }
 
+    public int getApplicationCountByStatus(String status) {
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor c = db.rawQuery("SELECT COUNT(*) FROM applications WHERE status = ?", new String[]{status});
+        int count = 0; if (c.moveToFirst()) count = c.getInt(0); c.close(); db.close(); return count;
+    }
+
+    public void updateApplicationStatus(long id, String status) {
+        SQLiteDatabase db = getWritableDatabase();
+        ContentValues v = new ContentValues();
+        v.put("status", status);
+        db.update("applications", v, "_id = ?", new String[]{String.valueOf(id)});
+        db.close();
+    }
+
     public void deleteApplication(long id) {
         SQLiteDatabase db = getWritableDatabase();
         db.delete("applications", "_id = ?", new String[]{String.valueOf(id)}); db.close();
@@ -134,5 +154,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = getReadableDatabase();
         Cursor c = db.rawQuery("SELECT emoji FROM pets WHERE name = ?", new String[]{name});
         String emoji = "🐾"; if (c.moveToFirst()) emoji = c.getString(0); c.close(); db.close(); return emoji;
+    }
+
+    public List<String> getAllCityNames() {
+        // Returns distinct city names from applications for AutoComplete suggestions
+        List<String> cities = new ArrayList<>();
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor c = db.rawQuery("SELECT DISTINCT address FROM applications", null);
+        if (c.moveToFirst()) {
+            do { cities.add(c.getString(0)); } while (c.moveToNext());
+        }
+        c.close(); db.close();
+        return cities;
     }
 }

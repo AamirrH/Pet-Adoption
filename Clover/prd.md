@@ -102,7 +102,7 @@ graph TD
 | | **Stats Bar**: Available pets count, My applications count (from SQLite) |
 | | **Pet Cards**: ScrollView with pet listing cards. Each card = RelativeLayout with pet emoji, name, breed, age, status |
 | | **Bottom Nav**: Home, My Apps, Quiz, Settings |
-| **Data** | Pets are pre-loaded into SQLite on first launch (8-10 sample pets) |
+| **Data** | Pets are pre-loaded into SQLite on first launch (8-10 sample pes) |
 | **Filter** | Spinner at top to filter by type (All, Dog, Cat, Bird, Rabbit) |
 
 ### 6.4 — Pet Detail Screen

@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.navHome).setOnClickListener(v -> {});
         findViewById(R.id.navApps).setOnClickListener(v -> startActivity(new Intent(this, MyApplicationsActivity.class)));
         findViewById(R.id.navQuiz).setOnClickListener(v -> startActivity(new Intent(this, QuizActivity.class)));
+        findViewById(R.id.navAdmin).setOnClickListener(v -> startActivity(new Intent(this, AdminPanelActivity.class)));
         findViewById(R.id.navSettings).setOnClickListener(v -> startActivity(new Intent(this, SettingsActivity.class)));
     }
 
@@ -48,6 +49,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         Log.d(TAG, "MainActivity: onResume()");
+        SharedPreferences prefs = getSharedPreferences("CloverPrefs", MODE_PRIVATE);
+        tvUserName.setText(prefs.getString("user_name", "User"));
         tvPetCount.setText(String.valueOf(db.getAvailableCount()));
         tvAppCount.setText(String.valueOf(db.getApplicationCount()));
         String filter = spinnerFilter.getSelectedItem().toString();

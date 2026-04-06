@@ -71,6 +71,7 @@
         app:layout_constraintBottom_toTopOf="@id/bottomNav" app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/filterRow"/>
 
+    <!-- Bottom Nav with Admin Panel -->
     <LinearLayout android:id="@+id/bottomNav" android:layout_width="0dp" android:layout_height="60dp"
         android:background="@color/card_white" android:elevation="12dp" android:gravity="center_vertical"
         android:orientation="horizontal" app:layout_constraintBottom_toBottomOf="parent"
@@ -83,6 +84,9 @@
             android:textColor="@color/text_secondary" android:textSize="11sp"/>
         <TextView android:id="@+id/navQuiz" android:layout_width="0dp" android:layout_height="match_parent"
             android:layout_weight="1" android:gravity="center" android:text="@string/nav_quiz"
+            android:textColor="@color/text_secondary" android:textSize="11sp"/>
+        <TextView android:id="@+id/navAdmin" android:layout_width="0dp" android:layout_height="match_parent"
+            android:layout_weight="1" android:gravity="center" android:text="🛡️\nAdmin"
             android:textColor="@color/text_secondary" android:textSize="11sp"/>
         <TextView android:id="@+id/navSettings" android:layout_width="0dp" android:layout_height="match_parent"
             android:layout_weight="1" android:gravity="center" android:text="@string/nav_settings"
