@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/splash_bg">
 
-    <TextView
+    <TextView 
         android:id="@+id/splashIcon"
         android:layout_width="100dp"
         android:layout_height="100dp"
