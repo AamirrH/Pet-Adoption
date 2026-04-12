@@ -2,17 +2,21 @@ package com.example.clover;
 
 import android.app.*;
 import android.content.*;
+import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.*;
 import android.widget.*;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 import androidx.core.app.NotificationCompat;
+import androidx.core.content.ContextCompat;
 import java.util.List;
 
 public class AdminPanelActivity extends AppCompatActivity {
     private static final String CH_ID = "clover_admin_channel";
+    private static final int NOTIF_PERM_CODE = 1001;
     private DatabaseHelper db;
     private LinearLayout appsList;
     private TextView tvEmpty, tvPendingCount, tvApprovedCount, tvRejectedCount;
@@ -30,6 +34,7 @@ public class AdminPanelActivity extends AppCompatActivity {
         tvRejectedCount = findViewById(R.id.tvRejectedCount);
 
         createNotificationChannel();
+        requestNotificationPermission();
     }
 
     @Override
@@ -87,6 +92,10 @@ public class AdminPanelActivity extends AppCompatActivity {
                                 .setIcon(android.R.drawable.ic_dialog_info)
                                 .setPositiveButton("Approve", (d, w) -> {
                                     db.updateApplicationStatus(app.getId(), "Approved");
+                                    db.insertNotification(
+                                        "🎉 Application Approved!",
+                                        "Great news! Your adoption application for " + app.getPetName() + " has been approved! Welcome your new furry friend!",
+                                        "approved", app.getPetName(), app.getId());
                                     sendStatusNotification(app, "Approved");
                                     Toast.makeText(this, "✅ Application approved!", Toast.LENGTH_SHORT).show();
                                     loadApplications();
@@ -104,6 +113,10 @@ public class AdminPanelActivity extends AppCompatActivity {
                                 .setPositiveButton("Reject", (d, w) -> {
                                     db.updateApplicationStatus(app.getId(), "Rejected");
                                     db.markNotAdopted(app.getPetId());
+                                    db.insertNotification(
+                                        "😔 Application Rejected",
+                                        "Unfortunately, your adoption application for " + app.getPetName() + " has been rejected. Don't give up — browse more pets!",
+                                        "rejected", app.getPetName(), app.getId());
                                     sendStatusNotification(app, "Rejected");
                                     Toast.makeText(this, "❌ Application rejected", Toast.LENGTH_SHORT).show();
                                     loadApplications();
@@ -116,6 +129,9 @@ public class AdminPanelActivity extends AppCompatActivity {
                     btnApprove.setVisibility(View.GONE);
                     btnReject.setVisibility(View.GONE);
                 }
+
+                // Click card to view full application details
+                item.setOnClickListener(v -> showApplicationDetails(app));
 
                 appsList.addView(item);
             }
@@ -137,6 +153,30 @@ public class AdminPanelActivity extends AppCompatActivity {
                 tv.setBackgroundColor(getResources().getColor(R.color.rejected_red_light));
                 break;
         }
+    }
+
+    private void showApplicationDetails(AdoptionApplication app) {
+        String emoji = db.getPetEmojiByName(app.getPetName());
+        String statusEmoji = "Pending".equals(app.getStatus()) ? "⏳" :
+                "Approved".equals(app.getStatus()) ? "✅" : "❌";
+
+        String details = emoji + " Pet: " + app.getPetName() + "\n\n"
+                + "👤 Adopter: " + app.getAdopterName() + "\n"
+                + "📞 Phone: " + app.getPhone() + "\n"
+                + "📍 Address: " + app.getAddress() + "\n"
+                + "🏠 Housing: " + app.getHousingType() + "\n"
+                + "🐾 Other Pets: " + app.getHasOtherPets() + "\n"
+                + "⭐ Experience: " + app.getExperience() + "\n"
+                + "📅 Preferred Date: " + app.getDate() + "\n\n"
+                + "💬 Reason:\n\"" + app.getReason() + "\"\n\n"
+                + statusEmoji + " Status: " + app.getStatus();
+
+        new AlertDialog.Builder(this)
+                .setTitle("📋 Application Details")
+                .setMessage(details)
+                .setIcon(android.R.drawable.ic_menu_info_details)
+                .setPositiveButton("Close", (d, w) -> d.dismiss())
+                .show();
     }
 
     private void sendStatusNotification(AdoptionApplication app, String status) {
@@ -176,6 +216,16 @@ public class AdminPanelActivity extends AppCompatActivity {
                     NotificationManager.IMPORTANCE_HIGH);
             ch.setDescription("Notifications for admin accept/reject decisions");
             ((NotificationManager) getSystemService(NOTIFICATION_SERVICE)).createNotificationChannel(ch);
+        }
+    }
+
+    private void requestNotificationPermission() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.POST_NOTIFICATIONS)
+                    != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(this,
+                        new String[]{android.Manifest.permission.POST_NOTIFICATIONS}, NOTIF_PERM_CODE);
+            }
         }
     }
 }

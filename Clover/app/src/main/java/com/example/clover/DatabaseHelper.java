@@ -10,7 +10,7 @@ import java.util.List;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String DB_NAME = "clover.db";
-    private static final int DB_VERSION = 2;
+    private static final int DB_VERSION = 3;
 
     public DatabaseHelper(Context context) { super(context, DB_NAME, null, DB_VERSION); }
 
@@ -18,14 +18,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE pets (_id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL, type TEXT NOT NULL, breed TEXT NOT NULL, age TEXT NOT NULL, size TEXT NOT NULL, temperament TEXT NOT NULL, description TEXT NOT NULL, emoji TEXT NOT NULL, is_adopted INTEGER DEFAULT 0)");
         db.execSQL("CREATE TABLE applications (_id INTEGER PRIMARY KEY AUTOINCREMENT, pet_id INTEGER NOT NULL, pet_name TEXT NOT NULL, adopter_name TEXT NOT NULL, phone TEXT NOT NULL, address TEXT NOT NULL, housing_type TEXT NOT NULL, has_other_pets TEXT NOT NULL, experience TEXT NOT NULL, reason TEXT NOT NULL, date TEXT NOT NULL, status TEXT DEFAULT 'Pending')");
+        db.execSQL("CREATE TABLE notifications (_id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT NOT NULL, message TEXT NOT NULL, type TEXT NOT NULL, pet_name TEXT, application_id INTEGER, is_read INTEGER DEFAULT 0, created_at TEXT NOT NULL)");
         seedPets(db);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int o, int n) {
-        db.execSQL("DROP TABLE IF EXISTS pets");
-        db.execSQL("DROP TABLE IF EXISTS applications");
-        onCreate(db);
+        if (o < 3) {
+            db.execSQL("CREATE TABLE IF NOT EXISTS notifications (_id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT NOT NULL, message TEXT NOT NULL, type TEXT NOT NULL, pet_name TEXT, application_id INTEGER, is_read INTEGER DEFAULT 0, created_at TEXT NOT NULL)");
+        }
     }
 
     private void seedPets(SQLiteDatabase db) {
@@ -137,6 +138,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void deleteAll() {
         SQLiteDatabase db = getWritableDatabase();
         db.delete("applications", null, null);
+        db.delete("notifications", null, null);
         db.delete("pets", null, null);
         seedPets(db); db.close();
     }
@@ -166,5 +168,74 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
         c.close(); db.close();
         return cities;
+    }
+
+    // ==================== Notification Methods ====================
+
+    public long insertNotification(String title, String message, String type, String petName, long applicationId) {
+        SQLiteDatabase db = getWritableDatabase();
+        ContentValues v = new ContentValues();
+        v.put("title", title);
+        v.put("message", message);
+        v.put("type", type);
+        v.put("pet_name", petName);
+        v.put("application_id", applicationId);
+        v.put("created_at", new java.text.SimpleDateFormat("dd MMM yyyy, hh:mm a", java.util.Locale.getDefault()).format(new java.util.Date()));
+        long id = db.insert("notifications", null, v);
+        db.close();
+        return id;
+    }
+
+    public List<com.example.clover.Notification> getAllNotifications() {
+        List<com.example.clover.Notification> list = new ArrayList<>();
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor c = db.rawQuery("SELECT * FROM notifications ORDER BY _id DESC", null);
+        if (c.moveToFirst()) {
+            do {
+                com.example.clover.Notification n = new com.example.clover.Notification();
+                n.setId(c.getLong(0));
+                n.setTitle(c.getString(1));
+                n.setMessage(c.getString(2));
+                n.setType(c.getString(3));
+                n.setPetName(c.getString(4));
+                n.setApplicationId(c.getLong(5));
+                n.setRead(c.getInt(6) == 1);
+                n.setCreatedAt(c.getString(7));
+                list.add(n);
+            } while (c.moveToNext());
+        }
+        c.close(); db.close();
+        return list;
+    }
+
+    public int getUnreadNotificationCount() {
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor c = db.rawQuery("SELECT COUNT(*) FROM notifications WHERE is_read = 0", null);
+        int count = 0;
+        if (c.moveToFirst()) count = c.getInt(0);
+        c.close(); db.close();
+        return count;
+    }
+
+    public void markNotificationAsRead(long id) {
+        SQLiteDatabase db = getWritableDatabase();
+        ContentValues v = new ContentValues();
+        v.put("is_read", 1);
+        db.update("notifications", v, "_id = ?", new String[]{String.valueOf(id)});
+        db.close();
+    }
+
+    public void markAllNotificationsAsRead() {
+        SQLiteDatabase db = getWritableDatabase();
+        ContentValues v = new ContentValues();
+        v.put("is_read", 1);
+        db.update("notifications", v, null, null);
+        db.close();
+    }
+
+    public void deleteAllNotifications() {
+        SQLiteDatabase db = getWritableDatabase();
+        db.delete("notifications", null, null);
+        db.close();
     }
 }

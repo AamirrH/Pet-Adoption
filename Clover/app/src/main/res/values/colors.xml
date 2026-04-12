@@ -19,6 +19,7 @@
     <color name="pending_amber">#FB8C00</color>
     <color name="pending_amber_light">#FFF3E0</color>
     <color name="rejected_red">#E53935</color>
+    <color name="rejected_red_light">#FFEBEE</color>
 
     <color name="background">#FAFAF7</color>
     <color name="card_white">#FFFFFF</color>

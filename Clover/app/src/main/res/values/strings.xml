@@ -20,6 +20,7 @@
     <string name="nav_home">🏠\nHome</string>
     <string name="nav_apps">📋\nMy Apps</string>
     <string name="nav_quiz">🧠\nQuiz</string>
+    <string name="nav_admin">🛡️\nAdmin</string>
     <string name="nav_settings">⚙️\nSettings</string>
 
     <string name="pet_detail">Pet Details</string>
@@ -76,6 +77,18 @@
     <string name="toast_exported">Certificate exported! ✓</string>
     <string name="toast_profile_saved">Profile updated! ✓</string>
     <string name="toast_reset">All data has been reset</string>
+
+    <string name="admin_panel">Admin Panel</string>
+    <string name="admin_subtitle">Manage adoption applications</string>
+    <string name="no_admin_apps">No applications to review</string>
+    <string name="notif_approved_title">🎉 Application Approved!</string>
+    <string name="notif_approved_text">Your adoption application for %1$s has been approved!</string>
+    <string name="notif_rejected_title">😔 Application Rejected</string>
+    <string name="notif_rejected_text">Your adoption application for %1$s has been rejected.</string>
+
+    <string name="notifications_title">🔔 Notifications</string>
+    <string name="no_notifications">No notifications yet.\nWhen an admin reviews your application, you\'ll see it here!</string>
+    <string name="mark_all_read">Mark all read ✓</string>
 
     <string name="yes">Yes</string>
     <string name="cancel">Cancel</string>

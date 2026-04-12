@@ -13,7 +13,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = "CloverLifecycle";
     private DatabaseHelper db;
     private LinearLayout petList;
-    private TextView tvEmpty, tvUserName, tvPetCount, tvAppCount;
+    private TextView tvEmpty, tvUserName, tvPetCount, tvAppCount, tvNotifBadge;
     private Spinner spinnerFilter;
 
     @Override
@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         tvUserName = findViewById(R.id.tvUserName);
         tvPetCount = findViewById(R.id.tvPetCount);
         tvAppCount = findViewById(R.id.tvAppCount);
+        tvNotifBadge = findViewById(R.id.tvNotifBadge);
         spinnerFilter = findViewById(R.id.spinnerFilter);
 
         SharedPreferences prefs = getSharedPreferences("CloverPrefs", MODE_PRIVATE);
@@ -43,6 +44,9 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.navQuiz).setOnClickListener(v -> startActivity(new Intent(this, QuizActivity.class)));
         findViewById(R.id.navAdmin).setOnClickListener(v -> startActivity(new Intent(this, AdminPanelActivity.class)));
         findViewById(R.id.navSettings).setOnClickListener(v -> startActivity(new Intent(this, SettingsActivity.class)));
+
+        // Notification bell click
+        findViewById(R.id.btnNotifBell).setOnClickListener(v -> startActivity(new Intent(this, NotificationsActivity.class)));
     }
 
     @Override
@@ -55,6 +59,19 @@ public class MainActivity extends AppCompatActivity {
         tvAppCount.setText(String.valueOf(db.getApplicationCount()));
         String filter = spinnerFilter.getSelectedItem().toString();
         loadPets(filter);
+
+        // Update notification badge
+        updateNotifBadge();
+    }
+
+    private void updateNotifBadge() {
+        int unread = db.getUnreadNotificationCount();
+        if (unread > 0) {
+            tvNotifBadge.setVisibility(View.VISIBLE);
+            tvNotifBadge.setText(unread > 9 ? "9+" : String.valueOf(unread));
+        } else {
+            tvNotifBadge.setVisibility(View.GONE);
+        }
     }
 
     private void loadPets(String filter) {
